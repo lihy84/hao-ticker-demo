@@ -47,13 +47,15 @@ npm install
 Start the SimDAQ API by running the following command in the `/simdaq-api` directory:
 
 ```bash
-npm index.js
+npx prisma migrate reset #setup/reset the database
+node seed.js # seed some mock data
+node index.js
 ```
 
 Start the server API by running the following command in the `/server` directory:
 
 ```bash
-npm index.js
+node index.js
 ```
 
 Start the react-app by running the following command in the root directory:

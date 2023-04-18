@@ -1,8 +1,10 @@
-// src/TickerList.js
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Ticker from './Ticker';
 
+/**
+ * GraphQL query
+ */
 const GET_TICKERS = gql`
   query GetTickers {
     tickers {
@@ -13,6 +15,9 @@ const GET_TICKERS = gql`
   }
 `;
 
+/**
+ * TickerList component
+ */
 const TickerList = () => {
   const { loading, error, data } = useQuery(GET_TICKERS, {
     pollInterval: 1000,

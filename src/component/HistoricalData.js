@@ -1,7 +1,7 @@
-// src/HistoricalData.js
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
+// HistoricalData component - displays a line chart of historical data for a single ticker
 const HistoricalData = ({ data }) => {
   const dataWithTimestamp = data.map(d => ({ ...d, timestamp: new Date(d.timestamp).toLocaleTimeString() }));
   return (

@@ -11,5 +11,5 @@ model Ticker {
   id             Int      @id @default(autoincrement())
   name           String
   price          Float
-  historicalData String  @default("[]")
+  historicalData String   @default("[]")
 }
