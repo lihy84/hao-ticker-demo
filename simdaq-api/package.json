@@ -1,0 +1,20 @@
+{
+  "name": "simdaq-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "4.13.0",
+    "cors": "2.8.5",
+    "express": "4.18.2",
+    "node-fetch": "3.3.1",
+    "prisma": "4.13.0",
+    "sqlite": "4.1.2"
+  }
+}

@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# Simulated Stock Ticker Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple web app that simulates a stock ticker platform, displaying real-time price updates for a list of pre-defined tickers.
 
-## Available Scripts
+## Folder Structure
 
-In the project directory, you can run:
+```ado
+.
+├── server
+│ ├── index.js
+│ └── package.json
+├── simdaq-api
+│ ├── index.js
+│ ├── package.json
+│ ├── prisma
+│ │ ├── schema.prisma
+│ │ └── migrations
+│ └── seed.js
+├── public
+│ └── index.html
+├── src
+│ ├── component
+│ │ ├── Ticker.js
+│ │ ├── TickerList.js
+│ │ ├── HistoricalData.js
+│ ├── index.js
+│ ├── App.js
+│ └── App.css
+└── package.json
+```
 
-### `npm start`
+## Running Locally
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js installed
+- NPM or Yarn package manager
 
-### `npm test`
+### Steps
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the repository and navigate to each of the three directories (server, simdaq-api, and the root), then install the required dependencies using the following command:
 
-### `npm run build`
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Start the SimDAQ API by running the following command in the `/simdaq-api` directory:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm index.js
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Start the server API by running the following command in the `/server` directory:
 
-### `npm run eject`
+```bash
+npm index.js
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Start the react-app by running the following command in the root directory:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Now, you can access the web app in your browser at http://localhost:3000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Future Improvement Ideas
 
-## Learn More
+- Add user authentication and allow users to create their own watchlists.
+- Implement a more sophisticated price simulation algorithm.
+- Allow users to select different timeframes for historical data (e.g., 1 day, 1 week, 1 month).
+- Improve chart visualization with more customization options.
+- Add more data points, such as volume, market cap, and percentage change.
+- Integrate with a real stock API for live data.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Pros and Cons of the Current Setup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pros
 
-### Code Splitting
+- Modular design, separating frontend, backend, and SimDAQ API, making it easier to maintain and scale each component independently.
+- Uses popular and well-documented technologies (React, GraphQL, Node.js, Prisma, and SQLite), making it easier to find resources and support.
+- GraphQL allows for efficient data fetching, minimizing over-fetching or under-fetching of data.
+- Provides a clean and simple user interface for displaying stock ticker information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Cons
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Currently, the app uses a simplified and random price simulation, which may not accurately reflect real-world stock price changes.
+- SQLite might not be the best choice for a production-level application due to its limitations (e.g., lack of support for concurrent writes). For a large-scale application, a more robust database solution like PostgreSQL might be more suitable.
+- The frontend currently only supports a fixed list of stock tickers, which limits the app's flexibility.
+- The app lacks advanced features and customization options that users might expect from a full-featured stock ticker platform.
