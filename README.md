@@ -1,6 +1,6 @@
 # Simulated Stock Ticker Web App
 
-![DEMO](/hao-ticker-demo/demo.png)
+![DEMO](/demo.png)
 
 This is a simple web app that simulates a stock ticker platform, displaying real-time price updates for a list of pre-defined tickers.
 
