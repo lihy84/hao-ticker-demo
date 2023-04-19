@@ -1,12 +1,14 @@
 import React from 'react';
 import HistoricalData from './HistoricalData';
 
+// Helper function to determine the color of the price
 const priceColor = (price, historicalData) => {
-  console.log('priceColor', price, historicalData[historicalData.length - 2].price);
+  // If there is no historical data, return black
+  const previousPrice = historicalData[historicalData.length - 2].price;
   switch (true) {
-    case price > historicalData[historicalData.length - 2].price:
+    case price > previousPrice:
       return 'green';
-    case price < historicalData[historicalData.length - 2].price:
+    case price < previousPrice:
       return 'red';
     default:
       return 'black';
