@@ -1,14 +1,24 @@
 import React from 'react';
 import HistoricalData from './HistoricalData';
 
+const priceColor = (price, historicalData) => {
+  console.log('priceColor', price, historicalData[historicalData.length - 2].price);
+  switch (true) {
+    case price > historicalData[historicalData.length - 2].price:
+      return 'green';
+    case price < historicalData[historicalData.length - 2].price:
+      return 'red';
+    default:
+      return 'black';
+  }
+};
+
 // Ticker component - displays a single ticker  (name, price, and historical data)
 const Ticker = ({ name, price, historicalData }) => {
-  // If the price is greater than the previous price, display the price in green
-  const color = price > historicalData[historicalData.length - 2]?.price ? 'green' : 'red';
   return (
     <div className="ticker">
       <h3>{name}</h3>
-      <p style={{ color }}>Price: ${price.toFixed(2)}</p>
+      <p style={{ color: priceColor(price, historicalData) }}>Price: ${price.toFixed(2)}</p>
       <HistoricalData data={historicalData} />
     </div>
   );
